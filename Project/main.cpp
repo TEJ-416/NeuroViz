@@ -575,14 +575,9 @@ void display9(float live_transparency_line,float output){
 void displaynetwork(void)
 {
     glMatrixMode(GL_MODELVIEW);
-    // clear the drawing buffer.
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
-    // clear the identity matrix.
     glLoadIdentity();
-    // traslate the draw by z = -4.0
-    // Note this when you decrease z like -8.0 the drawing will looks far , or smaller.
-    glTranslatef(-0.9, -0.75, -5.0); // -1.6 for scaling of 2.3
-    // Red color used to draw.
+    glTranslatef(-0.9, -0.75, -5.0);
     glColor3f(0.8, 0.2, 0.1);
 
     glTranslatef(1.0,1.0,1.0);
