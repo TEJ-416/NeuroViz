@@ -25,7 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		29A7F5F12B61263700069639 /* Project01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project01; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A7F5F12B61263700069639 /* Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project; sourceTree = BUILT_PRODUCTS_DIR; };
 		29A7F5F42B61263700069639 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		29A7F5FC2B61264B00069639 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		29A7F5FE2B61265100069639 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -47,7 +47,7 @@
 		29A7F5E82B61263700069639 = {
 			isa = PBXGroup;
 			children = (
-				29A7F5F32B61263700069639 /* Project01 */,
+				29A7F5F32B61263700069639 /* Project */,
 				29A7F5F22B61263700069639 /* Products */,
 				29A7F5FB2B61264B00069639 /* Frameworks */,
 			);
@@ -56,17 +56,17 @@
 		29A7F5F22B61263700069639 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29A7F5F12B61263700069639 /* Project01 */,
+				29A7F5F12B61263700069639 /* Project */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29A7F5F32B61263700069639 /* Project01 */ = {
+		29A7F5F32B61263700069639 /* Project */ = {
 			isa = PBXGroup;
 			children = (
 				29A7F5F42B61263700069639 /* main.cpp */,
 			);
-			path = Project01;
+			path = Project;
 			sourceTree = "<group>";
 		};
 		29A7F5FB2B61264B00069639 /* Frameworks */ = {
@@ -81,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		29A7F5F02B61263700069639 /* Project01 */ = {
+		29A7F5F02B61263700069639 /* Project */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29A7F5F82B61263700069639 /* Build configuration list for PBXNativeTarget "Project01" */;
+			buildConfigurationList = 29A7F5F82B61263700069639 /* Build configuration list for PBXNativeTarget "Project" */;
 			buildPhases = (
 				29A7F5ED2B61263700069639 /* Sources */,
 				29A7F5EE2B61263700069639 /* Frameworks */,
@@ -93,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = Project01;
+			name = Project;
 			productName = Project01;
-			productReference = 29A7F5F12B61263700069639 /* Project01 */;
+			productReference = 29A7F5F12B61263700069639 /* Project */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -112,7 +112,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 29A7F5EC2B61263700069639 /* Build configuration list for PBXProject "Project01" */;
+			buildConfigurationList = 29A7F5EC2B61263700069639 /* Build configuration list for PBXProject "Project" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -125,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29A7F5F02B61263700069639 /* Project01 */,
+				29A7F5F02B61263700069639 /* Project */,
 			);
 		};
 /* End PBXProject section */
@@ -284,7 +284,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29A7F5EC2B61263700069639 /* Build configuration list for PBXProject "Project01" */ = {
+		29A7F5EC2B61263700069639 /* Build configuration list for PBXProject "Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29A7F5F62B61263700069639 /* Debug */,
@@ -293,7 +293,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29A7F5F82B61263700069639 /* Build configuration list for PBXNativeTarget "Project01" */ = {
+		29A7F5F82B61263700069639 /* Build configuration list for PBXNativeTarget "Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29A7F5F92B61263700069639 /* Debug */,
