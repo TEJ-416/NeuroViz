@@ -6,10 +6,27 @@
 #include <time.h>
 using namespace std;
 
+
+
+GLfloat cameraPosX = 0.4, cameraPosY = 0.4, cameraPosZ = 2.0;
+GLfloat lookAtX = 0.4, lookAtY = 0.4, lookAtZ = 0.0;
+GLfloat upX = 0.0, upY = 1.0, upZ = 0.0;
+
+GLfloat cameraSpeed = 0.1;
+
+
+void setCamera() {
+    gluLookAt(cameraPosX, cameraPosY, cameraPosZ,
+              lookAtX, lookAtY, lookAtZ,
+              upX, upY, upZ);
+}
+
 int input_no=0;
 bool start = false;
 bool flag = true;
 GLfloat xRotated, yRotated, zRotated;
+
+
 
 void check(int value)
 {
@@ -577,12 +594,13 @@ void displaynetwork(void)
     glMatrixMode(GL_MODELVIEW);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
+    setCamera();
     glTranslatef(-0.9, -0.75, -5.0);
     glColor3f(0.8, 0.2, 0.1);
 
-    glTranslatef(1.0,1.0,1.0);
+    glTranslatef(1.0,0.0,1.0);
     glRotatef(yRotated, 0.0, 1.0, 0.0);
-    glTranslatef(-1.0,-1.0,-1.0);
+    glTranslatef(-1.0,0.0,-1.0);
 
     glScalef(1.5, 1.5, 1.5);
 
@@ -778,21 +796,28 @@ void idlenetwork(void)
     }
 }
 void handleKeypress(unsigned char key, int x, int y) {
+    GLfloat dirX = lookAtX - cameraPosX;
+    GLfloat dirY = lookAtY - cameraPosY;
+    GLfloat dirZ = lookAtZ - cameraPosZ;
+    GLfloat length = sqrt(dirX * dirX + dirY * dirY + dirZ * dirZ);
+    dirX /= length;
+    dirY /= length;
+    dirZ /= length;
     switch (key) {
         case 27:
             exit(0);
             break;
-        case 'e':
+        case 'p':
             start=false;
             break;
         case 'f':
             glutFullScreen();
             break;
-        case 'a':
+        case 'k':
             animation1=false;
             animation=!animation;
             break;
-        case 'd':
+        case 'l':
             animation=false;
             animation1=!animation1;
             break;
@@ -838,10 +863,38 @@ void handleKeypress(unsigned char key, int x, int y) {
             start = true;
             input_no = 9;
             break;
-    }
+        case 'w':
+           cameraPosY += cameraSpeed;
+           break;
+       case 's':
+           cameraPosY -= cameraSpeed;
+           break;
+       case 'a':
+           cameraPosX -= cameraSpeed;
+           break;
+       case 'd':
+           cameraPosX += cameraSpeed;
+           break;
+       case 'q':
+           cameraPosZ += cameraSpeed;
+           break;
+       case 'e':
+           cameraPosZ -= cameraSpeed;
+           break;
+        case 'x':
+            yRotated += 1.0;
+            break;
+        case 'z':
+            yRotated -= 1.0;
+            break;
+}
+    lookAtX = cameraPosX + dirX;
+    lookAtY = cameraPosY + dirY;
+    lookAtZ = cameraPosZ + dirZ;
 
     glutPostRedisplay();
 }
+
 
 int main(int argc, char** argv)
 {
