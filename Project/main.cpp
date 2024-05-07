@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "iostream"
 #include <time.h>
+#include <random>
 using namespace std;
 
 
@@ -24,6 +25,7 @@ void setCamera() {
 int input_no=0;
 bool start = false;
 bool flag = true;
+bool fullscreen = false;
 GLfloat xRotated, yRotated, zRotated;
 
 
@@ -44,8 +46,62 @@ void check(int value)
 }
 
 
-void highlight_lines(float x, float y, float z, float live_transparency_line,float output)
+
+void highlight_lines(float x, float y, float z, float live_transparency_line,float output,int no)
 {
+    float c1,c2,c3;
+    switch(no){
+        case 0:
+            c1=1.0;
+            c2=0.0;
+            c3=0.0;
+            break;
+        case 1:
+            c1=1.0;
+            c2=0.5;
+            c3=0.0;
+            break;
+        case 2:
+            c1=1.0;
+            c2=0.84;
+            c3=0.0;
+            break;
+        case 3:
+            c1=0.0;
+            c2=1.0;
+            c3=0.0;
+            break;
+        case 4:
+            c1=0.0;
+            c2=0.4;
+            c3=0.0;
+            break;
+        case 5:
+            c1=0.0;
+            c2=1.0;
+            c3=1.0;
+            break;
+        case 6:
+            c1=0.29;
+            c2=0.0;
+            c3=0.51;
+            break;
+        case 7:
+            c1=0.5;
+            c2=0.0;
+            c3=1.0;
+            break;
+        case 8:
+            c1=1.0;
+            c2=0.0;
+            c3=1.0;
+            break;
+        case 9:
+            c1=1.0;
+            c2=0.0;
+            c3=0.5;
+            break;
+    }
     float a, b, c;
     for (float i = 0; i <= 0.5; i = i + 0.1)
     {
@@ -102,16 +158,16 @@ void highlight_lines(float x, float y, float z, float live_transparency_line,flo
                 glEnd();
 
                 //output layer
-                glPointSize(20.0);
+                glPointSize(15.0);
                 glBegin(GL_POINTS);
                 glColor4f(0.0, 0.0, 1.0, 1.0);
-                glVertex3f(output, 0.5, 1.2);
+                glVertex3f(output, 0.55, 1.2);
                 glEnd();
                 glBegin(GL_LINE_LOOP);
                 glColor4f(1.0, 1.0, 1.0, live_transparency_line);
                 glVertex3f(0.1 + b, 0.1 + a, 0.8);
-                glVertex3f(output, 0.5, 1.2);
-                glVertex3f(output, 0.5, 1.2);
+                glVertex3f(output, 0.55, 1.2);
+                glVertex3f(output, 0.55, 1.2);
                 glEnd();
 
             }
@@ -152,27 +208,27 @@ void display0(float live_transparency_line,float output){
 
 
     glEnd();
-    highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-     highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
+    highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,0);
+     highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,0);
 
 
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,0);
 
-    highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
-     highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
+    highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,0);
+     highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,0);
 
 
-    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.6, 0.0, live_transparency_line, output);
+    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,0);
+    highlight_lines(0.5, 0.6, 0.0, live_transparency_line, output,0);
 }
 void display1(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -196,20 +252,20 @@ void display1(float live_transparency_line,float output){
 //                     glVertex3f(0.3, 0.2, 0.0);
     glEnd();
 
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.6, 0.3, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.6, 0.4, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.6, 0.6, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.6, 0.7, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,1);
 
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.2, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.7, 0.2, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.3, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.7, 0.2, 0.0, live_transparency_line, output,1);
+//                     highlight_lines(0.7, 0.2, 0.0, live_transparency_line, output,1);
+//                     highlight_lines(0.3, 0.2, 0.0, live_transparency_line, output,1);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,1);
+//                     highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,1);
 }
 void display2(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -236,22 +292,22 @@ void display2(float live_transparency_line,float output){
     glVertex3f(0.7, 0.3, 0.0);
     glEnd();
 
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.4, 0.0, live_transparency_line, output);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.6, 0.4, 0.0, live_transparency_line, output,2);
     
-//                     highlight_lines(0.3, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.2, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.8, 0.2, 0.0, live_transparency_line, output);
+//                     highlight_lines(0.3, 0.2, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,2);
+    highlight_lines(0.7, 0.2, 0.0, live_transparency_line, output,2);
+//                     highlight_lines(0.8, 0.2, 0.0, live_transparency_line, output,2);
     
-    highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
+    highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,2);
 }
 void display3(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -281,23 +337,23 @@ void display3(float live_transparency_line,float output){
 
 
     glEnd();
-     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
+     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,3);
 
-     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,3);
      
-     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,3);
 
-     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
+     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,3);
+//                     highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output,3);
+//                     highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,3);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,3);
 }
 void display4(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -324,25 +380,25 @@ void display4(float live_transparency_line,float output){
 
 
     glEnd();
-    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.8, 0.0, live_transparency_line, output);
+    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.4, 0.8, 0.0, live_transparency_line, output,4);
 
 
-    highlight_lines(0.3, 0.5, 0.0, live_transparency_line, output);
+    highlight_lines(0.3, 0.5, 0.0, live_transparency_line, output,4);
 
-    highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.8, 0.0, live_transparency_line, output);
+    highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.7, 0.8, 0.0, live_transparency_line, output,4);
 
 
-    highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
+    highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,4);
+    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,4);
 }
 void display5(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -374,26 +430,26 @@ void display5(float live_transparency_line,float output){
 
 
     glEnd();
-     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,5);
+//                     highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output,5);
+//                     highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,5);
+//                     highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.4, 0.8, 0.0, live_transparency_line, output,5);
 
-     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,5);
      
-     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,5);
 
-     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,5);
+//                     highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,5);
+    highlight_lines(0.7, 0.8, 0.0, live_transparency_line, output,5);
 }
 void display6(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -424,24 +480,24 @@ void display6(float live_transparency_line,float output){
 
 
     glEnd();
-     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
+     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,6);
+//                     highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,6);
 
-     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,6);
      
-     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,6);
 
-     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
+     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.7, 0.5, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,6);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,6);
 }
 void display7(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -468,26 +524,26 @@ void display7(float live_transparency_line,float output){
 
 
     glEnd();
-    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.8, 0.0, live_transparency_line, output);
+    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.4, 0.8, 0.0, live_transparency_line, output,7);
 
 
-    highlight_lines(0.3, 0.5, 0.0, live_transparency_line, output);
-//                     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
+    highlight_lines(0.3, 0.5, 0.0, live_transparency_line, output,7);
+//                     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,7);
 
     
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.8, 0.0, live_transparency_line, output);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.7, 0.8, 0.0, live_transparency_line, output,7);
 
 
-    highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
+    highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,7);
+    highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,7);
 }
 void display8(float live_transparency_line,float output){
     glPointSize(20.0);
@@ -517,23 +573,23 @@ void display8(float live_transparency_line,float output){
 
 
     glEnd();
-     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
+     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,8);
 
-     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,8);
      
-     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,8);
 
-     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
+     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.7, 0.4, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,8);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,8);
 
 
 }
@@ -566,28 +622,29 @@ void display9(float live_transparency_line,float output){
 
 
     glEnd();
-    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output);
-     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output);
+    highlight_lines(0.4, 0.2, 0.0, live_transparency_line, output,9);
+     highlight_lines(0.4, 0.3, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.4, 0.4, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.4, 0.5, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.4, 0.6, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.4, 0.7, 0.0, live_transparency_line, output,9);
 
-     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output);
-//                    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.5, 0.5, 0.0, live_transparency_line, output,9);
+//                    highlight_lines(0.5, 0.2, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.5, 0.8, 0.0, live_transparency_line, output,9);
      
-     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output);
-//                    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output);
-    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output);
+     highlight_lines(0.6, 0.5, 0.0, live_transparency_line, output,9);
+//                    highlight_lines(0.6, 0.2, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.6, 0.8, 0.0, live_transparency_line, output,9);
 
-//                     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output);
-    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output);
+//                     highlight_lines(0.7, 0.3, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.7, 0.6, 0.0, live_transparency_line, output,9);
+    highlight_lines(0.7, 0.7, 0.0, live_transparency_line, output,9);
 
 
  
 }
+
 
 void displaynetwork(void)
 {
@@ -604,7 +661,7 @@ void displaynetwork(void)
 
     glScalef(1.5, 1.5, 1.5);
 
-    float dead_transparency_line = 0.08;
+    float dead_transparency_line = 0.06;
     float live_transparency_line = 0.15;
     float a, b, c;
     for (a = 0; a <= 1.0; a = a + 0.1)
@@ -613,6 +670,7 @@ void displaynetwork(void)
         {
             for (c = 0; c <= 1.0; c = c + 0.1)
             {
+               
                 //Input Layer
                 glPointSize(15.0);
                 glBegin(GL_POINTS);
@@ -715,19 +773,27 @@ void displaynetwork(void)
                 glPointSize(3.0);
                 glBegin(GL_POINTS);
                 glColor4f(1.0, 1.0, 1.0, 0.05);
-                glVertex3f(0.1 + b, 0.5, 1.2);
-                glVertex3f(0.1 + b, 0.5, 1.2);
+                glVertex3f(0.1 + b, 0.55, 1.2);
+                glVertex3f(0.1 + b, 0.55, 1.2);
                 glEnd();
                 glBegin(GL_LINE_LOOP);
                 glColor4f(1.0, 1.0, 1.0, dead_transparency_line);
                 glVertex3f(0.1 + b, 0.1 + c, 0.8);
-                glVertex3f(0.1 + a, 0.5, 1.2);
-                glVertex3f(0.1 + a, 0.5, 1.2);
+                glVertex3f(0.1 + a, 0.55, 1.2);
+                glVertex3f(0.1 + a, 0.55, 1.2);
                 glEnd();
             }
         }
     }
 
+    int cnt=0;
+    char digits[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    for(float i=0;i<1.0;i=i+0.1){
+        glColor3f(0.0, 1.0, 1.0);
+        glRasterPos3f(0.08 + i, 0.58, 1.2);
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, digits[cnt++]);
+    }
+    
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     if (flag == true)
@@ -782,8 +848,10 @@ void reshapenetwork(int x, int y)
     gluPerspective(40.0, (GLdouble)x / (GLdouble)y, 0.5, 20.0);
     glViewport(0, 0, x, y);
 }
+
 bool animation = false;
 bool animation1 = false;
+
 void idlenetwork(void)
 {
     if(animation){
@@ -811,7 +879,14 @@ void handleKeypress(unsigned char key, int x, int y) {
             start=false;
             break;
         case 'f':
-            glutFullScreen();
+            if(fullscreen){
+                glutReshapeWindow(1350,950);
+                glutPositionWindow(50,50);
+            }
+            else{
+                glutFullScreen();
+            }
+            fullscreen=!fullscreen;
             break;
         case 'k':
             animation1=false;
@@ -901,11 +976,10 @@ int main(int argc, char** argv)
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB|GLUT_DEPTH);
     glutInitWindowSize(1350, 950);
-    glutInitWindowPosition(0, 0);
+    glutInitWindowPosition(50, 50);
     glutCreateWindow("Network Rotating Animation");
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    yRotated = 180;
-    glClearColor(0.0, 0.0, 0.0, 0.0);
+    yRotated = 315;
+    glClearColor(0.1, 0.1, 0.1, 1.0);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glutDisplayFunc(displaynetwork);
