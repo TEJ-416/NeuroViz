@@ -15,6 +15,7 @@ GLfloat upX = 0.0, upY = 1.0, upZ = 0.0;
 
 GLfloat cameraSpeed = 0.1;
 
+bool ctrl=true;
 
 void setCamera() {
     gluLookAt(cameraPosX, cameraPosY, cameraPosZ,
@@ -32,15 +33,16 @@ GLfloat xRotated, yRotated, zRotated;
 
 void check(int value)
 {
-    if (flag == true)
-    {
-        flag = false;
+    if(ctrl){
+        if (flag == true)
+        {
+            flag = false;
+        }
+        else if (flag == false)
+        {
+            flag = true;
+        }
     }
-    else if (flag == false)
-    {
-        flag = true;
-    }
-    cout << flag << "\n";
     glutPostRedisplay();
     glutTimerFunc(1000, check, 0);
 }
@@ -863,6 +865,27 @@ void idlenetwork(void)
         displaynetwork();
     }
 }
+
+bool spin=false;
+void spinFunc(int value){
+    if(spin){
+        if(value==10)
+            value=0;
+        input_no=value;
+        glutPostRedisplay();
+        glutTimerFunc(500, spinFunc, value + 1);
+        }
+}
+bool spin1=false;
+void spinFunc1(int value){
+    if(spin1){
+        if(value==-1)
+            value=9;
+        input_no=value;
+        glutPostRedisplay();
+        glutTimerFunc(500, spinFunc1, value - 1);
+        }
+}
 void handleKeypress(unsigned char key, int x, int y) {
     GLfloat dirX = lookAtX - cameraPosX;
     GLfloat dirY = lookAtY - cameraPosY;
@@ -874,6 +897,38 @@ void handleKeypress(unsigned char key, int x, int y) {
     switch (key) {
         case 27:
             exit(0);
+            break;
+        case 'r':
+            spin=false;
+            spin1=!spin1;
+            if(spin1){
+                ctrl=false;
+                start=true;
+                animation1=false;
+                animation=true;
+            }
+            else{
+                ctrl=true;
+                start=false;
+                animation=false;
+            }
+            glutTimerFunc(0, spinFunc1, 9);
+            break;
+        case 't':
+            spin1=false;
+            spin=!spin;
+            if(spin){
+                ctrl=false;
+                start=true;
+                animation=false;
+                animation1=true;
+            }
+            else{
+                ctrl=true;
+                start=false;
+                animation1=false;
+            }
+            glutTimerFunc(0, spinFunc, 0);
             break;
         case 'p':
             start=false;
