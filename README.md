@@ -27,3 +27,6 @@ Kwyboard shortcuts:
 - z - rotation about model clockwise
 - r - spin clockwise displaying numbers 9-0
 - t - spin anticlockwise displaying numbers 0-9
+
+The Neural Network
+![alt text]([http://url/to/img.png](https://github.com/TEJ-416/NeuroViz/blob/main/media/title.png))
