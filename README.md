@@ -31,3 +31,8 @@ Kwyboard shortcuts:
 The Neural Network
 ![media/title.png](https://github.com/TEJ-416/NeuroViz/blob/main/media/title.png)
 
+Example input: 7
+![media/seven.gif](https://github.com/TEJ-416/NeuroViz/blob/main/media/seven.gif)
+
+Keyboard input: t
+![media/animation.gif](https://github.com/TEJ-416/NeuroViz/blob/main/media/animation.gif)
