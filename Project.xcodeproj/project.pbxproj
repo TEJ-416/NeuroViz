@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29A7F5F52B61263700069639 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29A7F5F42B61263700069639 /* main.cpp */; };
 		29A7F5FD2B61264B00069639 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7F5FC2B61264B00069639 /* OpenGL.framework */; };
 		29A7F5FF2B61265100069639 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7F5FE2B61265100069639 /* GLUT.framework */; };
+		29AD7B462BEBA0BC0072500C /* mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29AD7B442BEBA0BC0072500C /* mac.cpp */; };
+		29AD7B472BEBA0BC0072500C /* windows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29AD7B452BEBA0BC0072500C /* windows.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +27,10 @@
 
 /* Begin PBXFileReference section */
 		29A7F5F12B61263700069639 /* Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project; sourceTree = BUILT_PRODUCTS_DIR; };
-		29A7F5F42B61263700069639 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		29A7F5FC2B61264B00069639 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		29A7F5FE2B61265100069639 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		29AD7B442BEBA0BC0072500C /* mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac.cpp; sourceTree = "<group>"; };
+		29AD7B452BEBA0BC0072500C /* windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,8 @@
 		29A7F5F32B61263700069639 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				29A7F5F42B61263700069639 /* main.cpp */,
+				29AD7B442BEBA0BC0072500C /* mac.cpp */,
+				29AD7B452BEBA0BC0072500C /* windows.cpp */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -135,7 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29A7F5F52B61263700069639 /* main.cpp in Sources */,
+				29AD7B462BEBA0BC0072500C /* mac.cpp in Sources */,
+				29AD7B472BEBA0BC0072500C /* windows.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
