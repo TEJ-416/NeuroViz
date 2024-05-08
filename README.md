@@ -7,7 +7,7 @@ empowering users to gain deeper insights into the structure, behaviour, and func
 Whether for educational purposes, model analysis, or research exploration, the visualization tool serves as a valuable asset in the arsenal of tools for 
 understanding and advancing the field of neural networks and artificial intelligence.
 
-For MAC users use x-code and run [mac.cpp](https://github.com/TEJ-416/NeuroViz/blob/main/Project/mac.cpp)
+For MAC users use x-code and run [mac.cpp](https://github.com/TEJ-416/NeuroViz/blob/main/Project/mac.cpp)  
 For Window users use visual studios and run [windows.cpp](https://github.com/TEJ-416/NeuroViz/blob/main/Project/windows.cpp)  
 
 Kwyboard shortcuts:  
